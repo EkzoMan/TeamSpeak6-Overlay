@@ -9,6 +9,8 @@
    
     ![image](https://github.com/user-attachments/assets/321b69d1-bcd0-4d2d-92d6-62a8a637e036)
 
+Вам может потребоваться установка [этого набора](https://dotnet.microsoft.com/ru-ru/download/dotnet/thank-you/runtime-desktop-8.0.12-windows-x64-installer)
+
 ### Известные проблемы
 
 #### Не появляются ники говорящих пользователей
