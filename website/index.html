@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TS6 Overlay — See who's talking, right in your game</title>
+  <meta name="description" content="Free overlay for TeamSpeak 6. Speaking badges with avatars and server role colors on top of your games. Windows, macOS, Linux.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TS6 Overlay — See who's talking, right in your game">
+  <meta property="og:description" content="Free overlay for TeamSpeak 6. Speaking badges with avatars and role colors on top of your games.">
+  <meta property="og:image" content="assets/img/screenshot-settings.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/img/ts_overlay.ico">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#top" class="brand">
+        <img src="assets/img/ts_overlay.ico" alt="" class="brand__logo" width="28" height="28">
+        <span class="brand__name">TS6&nbsp;Overlay</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="#features" class="nav__link" data-i18n="nav.features">Features</a>
+        <a href="#screenshots" class="nav__link" data-i18n="nav.screenshots">Screenshots</a>
+        <a href="#start" class="nav__link" data-i18n="nav.start">Quick start</a>
+        <a href="#faq" class="nav__link" data-i18n="nav.faq">FAQ</a>
+      </nav>
+      <div class="header__actions">
+        <!-- Language switcher -->
+        <div class="lang" id="lang">
+          <button class="lang__btn" id="langBtn" type="button" aria-haspopup="listbox" aria-expanded="false">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+            <span id="langLabel">EN</span>
+          </button>
+          <ul class="lang__menu" id="langMenu" role="listbox" aria-label="Language">
+            <li role="option" data-lang="en" aria-selected="true">English</li>
+            <li role="option" data-lang="ru" aria-selected="false">Русский</li>
+            <li role="option" data-lang="de" aria-selected="false">Deutsch</li>
+            <li role="option" data-lang="zh" aria-selected="false">中文</li>
+          </ul>
+        </div>
+
+        <a class="btn btn--ghost btn--sm header__gh" href="https://github.com/EkzoMan/TeamSpeak6-Overlay" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          <span>GitHub</span>
+        </a>
+
+        <a class="btn btn--primary btn--sm" href="https://github.com/EkzoMan/TeamSpeak6-Overlay/releases/latest" target="_blank" rel="noopener" data-i18n="nav.download">Download</a>
+
+        <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="hero__glow hero__glow--1" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--2" aria-hidden="true"></div>
+      <div class="hero__grid" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <div class="hero__chips">
+            <span class="chip"><span class="chip__dot"></span><span data-i18n="hero.chip.free">Free</span></span>
+            <span class="chip" id="versionChip">v0.3.10-beta</span>
+          </div>
+
+          <h1 class="hero__title">
+            <span data-i18n="hero.title.line1">See who's talking.</span><br>
+            <span class="text-gradient" data-i18n="hero.title.line2">Right in your game.</span>
+          </h1>
+
+          <p class="hero__subtitle" data-i18n="hero.subtitle">
+            TS6 Overlay shows slim speaking badges with avatars and server role colors on top of your games. Lightweight and customizable — almost invisible until someone speaks.
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn btn--primary btn--lg" href="https://github.com/EkzoMan/TeamSpeak6-Overlay/releases/latest" target="_blank" rel="noopener" data-asset="auto">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
+              <span data-i18n="hero.cta.download">Download for free</span>
+            </a>
+            <a class="btn btn--ghost btn--lg" href="https://github.com/EkzoMan/TeamSpeak6-Overlay" target="_blank" rel="noopener">
+              <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+              <span data-i18n="hero.cta.github">View on GitHub</span>
+            </a>
+          </div>
+
+          <ul class="hero__meta">
+            <li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg><span data-i18n="hero.meta.platforms">Windows · macOS · Linux</span></li>
+            <li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v10"/><path d="M8.5 6.5a5 5 0 1 0 7 0"/><path d="M9 21h6"/></svg><span data-i18n="hero.meta.ts6">Built for TeamSpeak 6</span></li>
+            <li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v5c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg><span data-i18n="hero.meta.privacy">No telemetry</span></li>
+          </ul>
+        </div>
+
+        <!-- Animated demo -->
+        <div class="hero__demo">
+          <div class="monitor">
+            <div class="monitor__screen" id="demoScreen">
+              <div class="scene" aria-hidden="true">
+                <div class="scene__sun"></div>
+                <div class="scene__mountains"></div>
+                <div class="scene__grid"></div>
+                <div class="scene__crosshair"></div>
+                <div class="scene__hud">
+                  <span class="scene__fps">142 FPS</span>
+                  <span class="scene__ping">PING 12</span>
+                </div>
+              </div>
+
+              <div class="badges" id="badges" aria-hidden="true"></div>
+              <div class="notifs" id="notifs" aria-hidden="true"></div>
+
+              <span class="scene__live"><span class="scene__live-dot"></span><span data-i18n="demo.live">Live preview</span></span>
+            </div>
+            <div class="monitor__stand" aria-hidden="true"></div>
+            <div class="monitor__base" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#features" class="hero__scroll" aria-label="Scroll down">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </a>
+    </section>
+
+    <!-- ===== Features ===== -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag" data-i18n="features.tag">Features</span>
+          <h2 class="section__title" data-i18n="features.title">Everything you need, nothing you don't</h2>
+          <p class="section__subtitle" data-i18n="features.subtitle">Designed to be informative yet unobtrusive — every detail is configurable.</p>
+        </div>
+
+        <div class="features">
+          <article class="feature reveal">
+            <div class="feature__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><path d="M12 19v3"/></svg></div>
+            <h3 data-i18n="features.f1.title">Speaking badges</h3>
+            <p data-i18n="features.f1.text">Nicknames appear over your game in real time — a slim column that never blocks the action.</p>
+          </article>
+
+          <article class="feature reveal">
+            <div class="feature__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 1.9 5.8H20l-4.9 3.6 1.9 5.8-5-3.6-5 3.6 1.9-5.8L4 8.8h6.1L12 3Z"/></svg></div>
+            <h3 data-i18n="features.f2.title">Server role colors</h3>
+            <p data-i18n="features.f2.text">Badges are painted automatically with TeamSpeak server group colors. At a glance you know who leads.</p>
+          </article>
+
+          <article class="feature reveal">
+            <div class="feature__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg></div>
+            <h3 data-i18n="features.f3.title">Avatars</h3>
+            <p data-i18n="features.f3.text">Show the user's avatar next to their badge — on the left or the right, your choice.</p>
+          </article>
+
+          <article class="feature reveal">
+            <div class="feature__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0l-7.2-7.2V3.4h9.8l7.4 7.4a2 2 0 0 1 0 2.6Z"/><circle cx="7.5" cy="7.5" r="1"/></svg></div>
+            <h3 data-i18n="features.f4.title">Aliases</h3>
+            <p data-i18n="features.f4.text">Rename any user in the overlay. Messy nicknames become clean, readable names.</p>
+          </article>
+
+          <article class="feature reveal">
+            <div class="feature__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5 4 4L8 20H4v-4L15 5Z"/><path d="m13 7 4 4"/></svg></div>
+            <h3 data-i18n="features.f5.title">Personal styles</h3>
+            <p data-i18n="features.f5.text">Per-user badge colors, gradients and presets — highlight friends, streamers or teammates.</p>
+          </article>
+
+          <article class="feature reveal">
+            <div class="feature__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 9a6 6 0 1 0-12 0c0 7-2 8-2 8h16s-2-1-2-8"/><path d="M10 21a2 2 0 0 0 4 0"/></svg></div>
+            <h3 data-i18n="features.f6.title">Notifications</h3>
+            <p data-i18n="features.f6.text">Optional join/leave pop-ups for the server or just your channel. Always know who's around.</p>
+          </article>
+
+          <article class="feature reveal">
+            <div class="feature__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+            <h3 data-i18n="features.f7.title">Any monitor, any corner</h3>
+            <p data-i18n="features.f7.text">Pick the output screen and one of nine positions. Margins and spacing are up to you.</p>
+          </article>
+
+          <article class="feature reveal">
+            <div class="feature__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></div>
+            <h3 data-i18n="features.f8.title">4 interface languages</h3>
+            <p data-i18n="features.f8.text">English, Russian, German and Chinese — the settings app speaks your language.</p>
+          </article>
+
+          <article class="feature reveal">
+            <div class="feature__icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v6h-6"/></svg></div>
+            <h3 data-i18n="features.f9.title">Auto-updates</h3>
+            <p data-i18n="features.f9.text">The app checks GitHub releases and lets you update in one click. Never miss a fix.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Screenshots ===== -->
+    <section class="section section--alt" id="screenshots">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag" data-i18n="shots.tag">Screenshots</span>
+          <h2 class="section__title" data-i18n="shots.title">A settings app you'll actually enjoy</h2>
+          <p class="section__subtitle" data-i18n="shots.subtitle">Dark, fast and consistent — with live preview of every change. Click to zoom.</p>
+        </div>
+
+        <div class="shots reveal" id="shots">
+          <figure class="shot" data-full="assets/img/screenshot-settings.png" data-caption="settings">
+            <img src="assets/img/screenshot-settings.png" alt="TS6 Overlay settings window" loading="lazy">
+            <figcaption data-i18n="shots.s1">Settings</figcaption>
+          </figure>
+          <figure class="shot" data-full="assets/img/screenshot-aliases.png" data-caption="aliases">
+            <img src="assets/img/screenshot-aliases.png" alt="Aliases editor" loading="lazy">
+            <figcaption data-i18n="shots.s2">Aliases</figcaption>
+          </figure>
+          <figure class="shot" data-full="assets/img/screenshot-userstyles.png" data-caption="userstyles">
+            <img src="assets/img/screenshot-userstyles.png" alt="User styles editor" loading="lazy">
+            <figcaption data-i18n="shots.s3">User styles</figcaption>
+          </figure>
+          <figure class="shot" data-full="assets/img/screenshot-roles.png" data-caption="roles">
+            <img src="assets/img/screenshot-roles.png" alt="Server roles" loading="lazy">
+            <figcaption data-i18n="shots.s4">Server roles</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Quick start ===== -->
+    <section class="section" id="start">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag" data-i18n="start.tag">Quick start</span>
+          <h2 class="section__title" data-i18n="start.title">Up and running in three steps</h2>
+          <p class="section__subtitle" data-i18n="start.subtitle">No accounts, no configuration files, no command line (unless you want one).</p>
+        </div>
+
+        <div class="steps">
+          <article class="step reveal">
+            <span class="step__num">1</span>
+            <h3 data-i18n="start.s1.title">Install</h3>
+            <p data-i18n="start.s1.text">Grab the package for your OS from GitHub Releases and run it. All builds are self-contained — nothing else to install.</p>
+          </article>
+          <article class="step reveal">
+            <span class="step__num">2</span>
+            <h3 data-i18n="start.s2.title">Connect</h3>
+            <p data-i18n="start.s2.text">Start TeamSpeak 6 with the Remote Apps SDK enabled and paste its API key into the overlay. It usually picks the key up automatically.</p>
+          </article>
+          <article class="step reveal">
+            <span class="step__num">3</span>
+            <h3 data-i18n="start.s3.title">Talk</h3>
+            <p data-i18n="start.s3.text">Choose a monitor and a corner. Badges appear by themselves when someone speaks — that's it.</p>
+          </article>
+        </div>
+
+        <div class="note reveal">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 11v5"/></svg>
+          <p data-i18n="start.note">TeamSpeak 6 must be running with Remote Apps SDK enabled — the overlay reads speaking data from it locally.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Platforms ===== -->
+    <section class="section section--alt" id="platforms">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag" data-i18n="platforms.tag">Platforms</span>
+          <h2 class="section__title" data-i18n="platforms.title">One overlay, three platforms</h2>
+          <p class="section__subtitle" data-i18n="platforms.subtitle">Every package is self-contained: the .NET runtime is bundled, so nothing else is required.</p>
+        </div>
+
+        <div class="platforms">
+          <article class="platform reveal">
+            <div class="platform__icon">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3V5.5ZM3 12.5h7.5v7.1L3 18.5v-6ZM11.5 4.2 21 3v8.5h-9.5V4.2ZM11.5 12.5H21V21l-9.5-1.3v-7.2Z"/></svg>
+            </div>
+            <h3>Windows</h3>
+            <p data-i18n="platforms.win.text">Modern MSI installer (WiX 5) for x64. The overlay lives in the system tray.</p>
+            <a class="platform__link" href="https://github.com/EkzoMan/TeamSpeak6-Overlay/releases/latest" target="_blank" rel="noopener" data-asset="msi">
+              <span data-i18n="platforms.win.get">Download .msi</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+
+          <article class="platform reveal">
+            <div class="platform__icon">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M16.36 12.7c.03 3.05 2.68 4.07 2.71 4.08-.02.07-.42 1.45-1.4 2.87-.84 1.23-1.72 2.45-3.1 2.48-1.36.02-1.79-.8-3.34-.8-1.55 0-2.03.77-3.3.83-1.33.05-2.33-1.33-3.18-2.55-1.73-2.5-3.05-7.07-1.28-10.16.88-1.53 2.46-2.5 4.17-2.53 1.31-.02 2.54.88 3.34.88.8 0 2.3-1.09 3.89-.93.66.03 2.52.27 3.71 2-.1.06-2.21 1.29-2.19 3.83l-.03.0ZM13.8 4.4c.71-.86 1.19-2.06 1.06-3.25-1.02.04-2.26.68-2.99 1.54-.66.76-1.23 1.98-1.08 3.15 1.14.09 2.3-.58 3.01-1.44Z"/></svg>
+            </div>
+            <h3>macOS</h3>
+            <p data-i18n="platforms.mac.text">Drag-and-drop .dmg image or a .pkg installer wizard. Universal build for Apple Silicon and Intel.</p>
+            <a class="platform__link" href="https://github.com/EkzoMan/TeamSpeak6-Overlay/releases/latest" target="_blank" rel="noopener" data-asset="dmg">
+              <span data-i18n="platforms.mac.get">Download .dmg</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <p class="platform__note" data-i18n="platforms.mac.note">Unsigned build: right-click → Open on first launch, or run <code>xattr -d com.apple.quarantine '/Applications/TS6 Overlay.app'</code></p>
+          </article>
+
+          <article class="platform reveal">
+            <div class="platform__icon">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m6 9 3 3-3 3M12 15h6"/></svg>
+            </div>
+            <h3>Linux</h3>
+            <p data-i18n="platforms.linux.text">Debian package for amd64. Works on X11; Wayland support is on the roadmap.</p>
+            <div class="codebox">
+              <code id="aptCmd">sudo apt install ./TS6Overlay-&lt;version&gt;-linux-amd64.deb</code>
+              <button class="copybtn" type="button" data-copy="sudo apt install ./TS6Overlay-<version>-linux-amd64.deb" aria-label="Copy">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+            </div>
+            <a class="platform__link" href="https://github.com/EkzoMan/TeamSpeak6-Overlay/releases/latest" target="_blank" rel="noopener" data-asset="deb">
+              <span data-i18n="platforms.linux.get">Download .deb</span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section" id="faq">
+      <div class="container container--narrow">
+        <div class="section__head reveal">
+          <span class="section__tag" data-i18n="faq.tag">FAQ</span>
+          <h2 class="section__title" data-i18n="faq.title">Frequently asked questions</h2>
+        </div>
+
+        <div class="faq-list reveal">
+          <details class="faq">
+            <summary><span data-i18n="faq.q1">Is TS6 Overlay really free?</span><span class="faq__x" aria-hidden="true"></span></summary>
+            <p data-i18n="faq.a1">Yes. Use it, modify it, share it — no strings attached. If you find it useful, you can support the author.</p>
+          </details>
+          <details class="faq">
+            <summary><span data-i18n="faq.q2">Does it work with TeamSpeak 3 or 5?</span><span class="faq__x" aria-hidden="true"></span></summary>
+            <p data-i18n="faq.a2">No. The overlay is built exclusively for TeamSpeak 6 and its Remote Apps SDK.</p>
+          </details>
+          <details class="faq">
+            <summary><span data-i18n="faq.q3">Where does my data go?</span><span class="faq__x" aria-hidden="true"></span></summary>
+            <p data-i18n="faq.a3">Nowhere. The overlay talks only to the TeamSpeak 6 client on your machine. The sole exception is the update check against github.com.</p>
+          </details>
+          <details class="faq">
+            <summary><span data-i18n="faq.q4">Does the overlay block mouse clicks in my game?</span><span class="faq__x" aria-hidden="true"></span></summary>
+            <p data-i18n="faq.a4">No — the overlay window is click-through and automatically raises itself, so your input always reaches the game.</p>
+          </details>
+          <details class="faq">
+            <summary><span data-i18n="faq.q5">What about Wayland on Linux?</span><span class="faq__x" aria-hidden="true"></span></summary>
+            <p data-i18n="faq.a5">Wayland isn't supported yet: the overlay can't raise above windows there. Use X11 for now — everything works. Support is planned with the Avalonia 12 update.</p>
+          </details>
+          <details class="faq">
+            <summary><span data-i18n="faq.q6">Can I use it on multiple monitors?</span><span class="faq__x" aria-hidden="true"></span></summary>
+            <p data-i18n="faq.a6">Yes — pick any connected monitor and one of nine badge positions, with fine-tunable margins.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Download CTA ===== -->
+    <section class="section section--cta" id="download">
+      <div class="container">
+        <div class="cta reveal">
+          <div class="cta__glow" aria-hidden="true"></div>
+          <h2 data-i18n="cta.title">Ready when you are</h2>
+          <p data-i18n="cta.subtitle">Free to use and set up in under a minute. Your teammates already see the badges — join them.</p>
+          <div class="cta__btns">
+            <a class="btn btn--primary btn--lg" href="https://github.com/EkzoMan/TeamSpeak6-Overlay/releases/latest" target="_blank" rel="noopener" data-asset="auto">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
+              <span data-i18n="cta.download">Get TS6 Overlay</span>
+            </a>
+            <a class="btn btn--ghost btn--lg" href="https://github.com/EkzoMan/TeamSpeak6-Overlay/issues" target="_blank" rel="noopener">
+              <span data-i18n="cta.issues">Report an issue</span>
+            </a>
+          </div>
+          <p class="cta__meta"><span data-i18n="cta.version">Latest version:</span> <span id="ctaVersion">v0.3.10-beta</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__about">
+        <a href="#top" class="brand">
+          <img src="assets/img/ts_overlay.ico" alt="" class="brand__logo" width="24" height="24">
+          <span class="brand__name">TS6&nbsp;Overlay</span>
+        </a>
+        <p data-i18n="footer.tagline">A free speaking overlay for TeamSpeak 6.</p>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.project">Project</h4>
+        <a href="https://github.com/EkzoMan/TeamSpeak6-Overlay" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/EkzoMan/TeamSpeak6-Overlay/releases" target="_blank" rel="noopener" data-i18n="footer.releases">Releases</a>
+        <a href="https://github.com/EkzoMan/TeamSpeak6-Overlay/issues" target="_blank" rel="noopener" data-i18n="footer.issues">Issues</a>
+      </div>
+
+      <div class="footer__col">
+        <h4 data-i18n="footer.support">Support the author</h4>
+        <a href="https://www.paypal.com/paypalme/ekzoman" target="_blank" rel="noopener">PayPal</a>
+        <a href="https://www.tinkoff.ru/rm/r_ndHgIlccZY.yixVzlUPGl/ThA2A54356" target="_blank" rel="noopener">Tinkoff</a>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>© <span id="year">2026</span> EkzoMan</span>
+      <span data-i18n="footer.made">Not affiliated with TeamSpeak Systems GmbH.</span>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <button class="lightbox__close" id="lbClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lbPrev" aria-label="Previous">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>
+    </button>
+    <figure>
+      <img id="lbImg" src="" alt="">
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+    <button class="lightbox__nav lightbox__nav--next" id="lbNext" aria-label="Next">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+    </button>
+  </div>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
