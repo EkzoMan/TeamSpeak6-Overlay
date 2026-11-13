@@ -70,6 +70,10 @@
         <div class="hero__text">
           <div class="hero__chips">
             <span class="chip"><span class="chip__dot"></span><span data-i18n="hero.chip.free">Free</span></span>
+            <span class="chip" id="downloadsChip" hidden>
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 21h16"/></svg>
+              <span><span id="downloadsValue">—</span> <span data-i18n="downloads.label">downloads</span></span>
+            </span>
             <span class="chip" id="versionChip">v0.3.10-beta</span>
           </div>
 
@@ -371,7 +375,7 @@
               <span data-i18n="cta.issues">Report an issue</span>
             </a>
           </div>
-          <p class="cta__meta"><span data-i18n="cta.version">Latest version:</span> <span id="ctaVersion">v0.3.10-beta</span></p>
+          <p class="cta__meta"><span data-i18n="cta.version">Latest version:</span> <span id="ctaVersion">v0.3.10-beta</span><span id="ctaDownloads" hidden> · <span id="ctaDownloadsValue">—</span> <span data-i18n="downloads.label">downloads</span></span></p>
         </div>
       </div>
     </section>
