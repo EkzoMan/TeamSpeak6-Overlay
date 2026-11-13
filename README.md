@@ -1,83 +1,111 @@
-# TeamSpeak6 Overlay
+# TS6 Overlay
 
-## Как пользоваться
+[![CI](https://github.com/EkzoMan/TS6-Overlay/actions/workflows/ci.yml/badge.svg)](https://github.com/EkzoMan/TS6-Overlay/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/EkzoMan/TS6-Overlay?include_prereleases&logo=github)](https://github.com/EkzoMan/TS6-Overlay/releases)
+[![License](https://img.shields.io/github/license/EkzoMan/TS6-Overlay)](LICENSE)
 
-1. Запустите клиент TeamSpeak 6
-2. Запустите оверлэй
-3. В клиенте TeamSpeak на колокольчике появится красная точка. Нажмите и подтвердите разрешение для оверлэя
-    ![image](https://github.com/user-attachments/assets/94263889-a667-4ac4-a6c9-8b9676613632)
-   
-    ![image](https://github.com/user-attachments/assets/321b69d1-bcd0-4d2d-92d6-62a8a637e036)
+**Русский** · [English](README.en.md) · [Deutsch](README.de.md) · [中文](README.zh.md)
 
-Вам может потребоваться установка [этого набора](https://dotnet.microsoft.com/ru-ru/download/dotnet/thank-you/runtime-desktop-8.0.12-windows-x64-installer)
+**TS6 Overlay** — бесплатный оверлей с открытым исходным кодом для **TeamSpeak 6**, который показывает, кто говорит, прямо поверх ваших игр и приложений. Классические бейджи с никнеймами, цвета ролей сервера, аватары и уведомления о входе/выходе — всё настраивается и почти не отвлекает от игры.
 
-### Известные проблемы
+<p align="center">
+  <img src="images/reference/generated_image_1.png" alt="Скриншот TS6 Overlay" width="720">
+</p>
 
-#### Не появляются ники говорящих пользователей
+## Возможности
 
-Если в течении 30 секунд после запуска оверлея не начали появляться ники говорящих пользоватлеей канала, закройте оверлэй и удалите файл settings.json из папки, в которой находится исполняемый файл. После этого снова запустите оверлэй.
+- 🎙️ **Бейджи говорящих** — никнеймы говорящих пользователей отображаются поверх игр в реальном времени
+- 🎨 **Стили бейджей** — цвет фона, шрифта, размер, прозрачность и внутренние отступы
+- 👥 **Стили ролей сервера** — бейджи окрашиваются в цвета серверных групп (ролей)
+- 🙋 **Свои стили для пользователей** — персональные цвета бейджа по никнейму
+- 🔤 **Псевдонимы** — переименование пользователей в оверлее (алиасы)
+- 🖼️ **Аватары** — изображение пользователя рядом с бейджем (слева или справа)
+- 📢 **Уведомления** — вход/выход на сервере и в вашем канале (опционально)
+- 🖥️ **Любой монитор** — выбор экрана вывода и угла размещения (9 позиций)
+- 🌐 **4 языка интерфейса** — английский, русский, немецкий, китайский
+- 🔄 **Автообновления** — проверка новых релизов GitHub прямо из приложения
 
-## Известные баги
-- Не всегда обновляется список подключенных пользователей
-- В Windows 10 список говорящих пользователей прячется под другими окнами
+## Скриншоты
 
-## Что планируется сделать
-- [ ] Добавить отслеживание изменения конфига
-- [x] Добавить настройки прозрачности оверлея
-- [x] Добавить редактор групп сервера
-- [x] Добавить страницу редактирования цвета бейджей для ролей
-- [x] Добавить страницу редактирования настроек алиасов
-- [x] Добавить страницу редактирования цвета бейджей для пользователей
-- [x] Добавить сохранение выбранного монитора
-- [x] Добавить обработку ситуации, когда TS забывает api ключ
-- [x] Добавить настройки положения овеля на экране
-- [x] Добавить возможность выделения пользователей разными цветами
-- [x] Добавить возможность задавать свой текст вместо ника пользователя
-- [x] Добавить возможность выделение групп ТС разными цветами
+| Окно настроек                                              | Оверлей                                                  |
+| ---------------------------------------------------------- | -------------------------------------------------------- |
+| ![Настройки](images/reference/generated_image_1%20(2).png) | ![Оверлей](images/reference/generated_image_1%20(3).png) |
 
+## Установка
 
-### Поддержка
+### Windows (MSI)
 
-Ваши вопросы присылайте на почту [alexmis@yandex.ru](mailto:alexmis@yandex.ru)
+1. Скачайте `TS6Overlay-<версия>-win-x64.msi` со страницы [релизов](https://github.com/EkzoMan/TS6-Overlay/releases/latest)
+2. Запустите установщик и следуйте инструкциям
 
-EN
+### macOS (DMG)
 
-## How to use
+. Откройте образ и перетащите **TS6 Overlay** в папку **Applications**
+. При первом запуске, если macOS предупреждает о неподписанном приложении — ПКМ по приложению → «Открыть» → «Открыть»
 
-1. Launch the TeamSpeak 6 client
-2. Launch an overlay
-3. A red dot will appear on the bell in the TeamSpeak client. Click and confirm permission for overlay 
-![image](https://github.com/user-attachments/assets/94263889-a667-4ac4-a6c9-8b9676613632) 
+> Альтернатива — установщик `.pkg` того же релиза (мастер установки в `/Applications`).
 
-![image](https://github.com/user-attachments/assets/321b69d1-bcd0-4d2d-92d6-62a8a637e036)
+Так как приложение не имеет сертификата Apple, оно помечается системой как вредоносное. Для запуска откройте терминал и выполните команду:
 
-You may need to install [this kit](https://dotnet.microsoft.com/ru-ru/download/dotnet/thank-you/runtime-desktop-8.0.12-windows-x64-installer)
+```shell
+xattr -d com.apple.quarantine '/Applications/TS6 Overlay.app'
+```
 
-### Known Issues
+### Linux (DEB)
 
-#### Nicknames of speaking users do not appear
+1. Скачайте `TS6Overlay-<версия>-linux-amd64.deb`
+2. `sudo apt install ./TS6Overlay-<версия>-linux-amd64.deb`
 
-If within 30 seconds after launching the overlay the nicknames of the speaking users of the channel do not begin to appear, close the overlay and delete the settings.json file from the folder in which the executable file is located. After that, launch the overlay again.
+> Все пакеты **self-contained**: среда .NET уже включена, ничего дополнительно устанавливать не нужно.
 
-## Known bugs
-- The list of connected users is not always updated
-- In Windows 10, the list of speaking users is hidden under other windows
+> ⚠️ **TeamSpeak 6** должен быть запущен с включённым **Remote Apps SDK** — именно через него оверлей получает данные о говорящих.
 
-## What is planned to be done
-- [ ] Add tracking of config changes
-- [x] Add overlay transparency settings
-- [x] Add server group editor
-- [x] Add badge color editing page for roles
-- [x] Add page for editing alias settings
-- [x] Add badge color editing page for users
-- [x] Add saving of the selected monitor
-- [x] Add handling of the situation when TS forgets the api key
-- [x] Add settings for the position of the ovel on the screen
-- [x] Add the ability to highlight users in different colors
-- [x] Add the ability to set your own text instead of the user’s nickname
-- [x] Add the ability to highlight vehicle groups in different colors
+## Быстрый старт
 
+1. Запустите TS6 Overlay — иконка появится в системном трее
+2. Откройте **настройки** (клик по иконке трея) → вкладка **«О программе»** — там же доступна проверка обновлений
+3. Вставьте **API-ключ** из TeamSpeak 6 (Remote Apps), если он не подхватился автоматически
+4. Выберите **монитор** и **угол** размещения бейджей
+5. Говорите — бейджи появятся сами!
 
-### Support
+## Сборка из исходников
 
-Send your questions to [alexmis@yandex.ru](mailto:alexmis@yandex.ru)
+Требуется .NET SDK 10.0.
+
+```bash
+# Сборка приложения
+dotnet build src/TS6Overlay.App/TS6Overlay.App.csproj -c Release
+
+# Запуск тестов
+dotnet test tests/TS6.Core.Tests/TS6.Core.Tests.csproj -c Release
+
+# Публикация самодостаточного бинарника
+dotnet publish src/TS6Overlay.App/TS6Overlay.App.csproj -c Release -r win-x64 --self-contained
+```
+
+## Архитектура
+
+```
+├── src/TS6Overlay.App     # Avalonia UI (кроссплатформенный интерфейс, v1.x)
+├── TS6Services            # Ядро: WebSocket-клиент, диспетчеры, настройки
+├── tests/TS6.Core.Tests   # Модульные тесты ядра
+└── packaging/             # MSI (WiX), PKG, DEB-скрипты
+```
+
+- **TS6Services** — ядро, не зависящее от UI: подключение к TeamSpeak 6 через Remote Apps SDK (WebSocket), диспетчеры клиентов/бейджей/обновлений, хранилище настроек с миграцией и атомарной записью.
+- **src/TS6Overlay.App** — интерфейс на **Avalonia 11** (Windows/macOS/Linux). Живой предпросмотр настроек, локализация, тёмная тема.
+
+## Известные ограничения
+
+- **Wayland** (Linux) пока не поддерживается: оверлей не поднимается над окнами и не получает click-through. Используйте X11 — на нём всё работает. Поддержка запланирована с обновлением до Avalonia 12.
+
+## Поддержать автора
+
+Если проект вам полезен, можно поддержать разработку:
+
+- **PayPal**: [paypal.com/paypalme/ekzoman](https://www.paypal.com/paypalme/ekzoman)
+- **Tinkoff**: [tinkoff.ru/rm/r_ndHgIlccZY.yixVzlUPGl](https://www.tinkoff.ru/rm/r_ndHgIlccZY.yixVzlUPGl/ThA2A54356)
+
+## Лицензия
+
+Проект распространяется по лицензии **MIT** — см. [LICENSE](LICENSE).
