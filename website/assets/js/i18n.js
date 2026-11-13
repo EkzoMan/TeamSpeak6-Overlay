@@ -20,6 +20,8 @@ window.I18N = {
     "hero.meta.ts6": "Built for TeamSpeak 6",
     "hero.meta.privacy": "No telemetry",
 
+    "downloads.label": "downloads",
+
     "demo.live": "Live preview",
 
     "features.tag": "Features",
@@ -119,6 +121,8 @@ window.I18N = {
     "hero.meta.platforms": "Windows · macOS · Linux",
     "hero.meta.ts6": "Создан для TeamSpeak 6",
     "hero.meta.privacy": "Без телеметрии",
+
+    "downloads.label": "скачиваний",
 
     "demo.live": "Живое превью",
 
@@ -220,6 +224,8 @@ window.I18N = {
     "hero.meta.ts6": "Für TeamSpeak 6 gebaut",
     "hero.meta.privacy": "Keine Telemetrie",
 
+    "downloads.label": "Downloads",
+
     "demo.live": "Live-Vorschau",
 
     "features.tag": "Funktionen",
@@ -319,6 +325,8 @@ window.I18N = {
     "hero.meta.platforms": "Windows · macOS · Linux",
     "hero.meta.ts6": "专为 TeamSpeak 6 打造",
     "hero.meta.privacy": "无遥测",
+
+    "downloads.label": "次下载",
 
     "demo.live": "实时预览",
 

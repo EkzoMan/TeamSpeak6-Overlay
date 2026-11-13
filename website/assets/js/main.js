@@ -117,12 +117,51 @@
   }
   setVersion("v0.3.10-beta"); // fallback, обновляется ниже из GitHub API
 
-  fetch(API_REPO + "/releases/latest")
+  /* ---------- GitHub releases: версия, ссылки, счётчик скачиваний ---------- */
+  // Один запрос списка релизов закрывает три задачи: версию последнего релиза,
+  // прямые ссылки на файлы для кнопок и суммарный счётчик скачиваний.
+  fetch(API_REPO + "/releases?per_page=100")
     .then(function (r) { return r.ok ? r.json() : null; })
-    .then(function (data) {
-      if (data && data.tag_name) setVersion(data.tag_name);
+    .then(function (releases) {
+      if (!releases || !releases.length) return;
+
+      setVersion(releases[0].tag_name);
+      applySmartLinks(releases[0]);
+      setDownloads(sumDownloads(releases));
     })
-    .catch(function () { /* остаётся fallback */ });
+    .catch(function () { /* остаются fallback-значения и ссылки на страницу релизов */ });
+
+  function sumDownloads(releases) {
+    return releases.reduce(function (total, release) {
+      return total + (release.assets || []).reduce(function (sum, asset) {
+        return sum + (asset.download_count || 0);
+      }, 0);
+    }, 0);
+  }
+
+  function setDownloads(count) {
+    if (!count) return; // API недоступен или счётчики пусты — чипы остаются скрытыми
+
+    var text = formatCount(count);
+    var chip = document.getElementById("downloadsChip");
+    var cta = document.getElementById("ctaDownloads");
+    if (chip) chip.hidden = false;
+    if (cta) cta.hidden = false;
+    var chipVal = document.getElementById("downloadsValue");
+    var ctaVal = document.getElementById("ctaDownloadsValue");
+    if (chipVal) chipVal.textContent = text;
+    if (ctaVal) ctaVal.textContent = text;
+  }
+
+  function formatCount(n) {
+    if (n >= 1000000) return trimZeros((n / 1000000).toFixed(1)) + "M";
+    if (n >= 1000) return trimZeros((n / 1000).toFixed(1)) + "K";
+    return String(n);
+  }
+
+  function trimZeros(s) {
+    return s.replace(/\.0$/, "");
+  }
 
   /* ---------- Smart download links ---------- */
   var ASSET_HINTS = {
@@ -142,7 +181,6 @@
 
   function applySmartLinks(latest) {
     if (!latest) return;
-    var tag = latest.tag_name;
     var assets = latest.assets || [];
 
     document.querySelectorAll("[data-asset]").forEach(function (a) {
@@ -170,13 +208,6 @@
       if (match) a.href = match.browser_download_url;
     });
   }
-
-  fetch(API_REPO + "/releases/latest")
-    .then(function (r) { return r.ok ? r.json() : null; })
-    .then(function (data) {
-      if (data) applySmartLinks(data);
-    })
-    .catch(function () { /* кнопки ведут на страницу релизов */ });
 
   /* ---------- Badge demo in hero ---------- */
   var PEOPLE = [
